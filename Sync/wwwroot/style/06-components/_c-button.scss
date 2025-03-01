@@ -1,0 +1,15 @@
+$component-name: "c-button";
+
+.#{$component-name} {
+  background: linear-gradient(45deg, transparent 10px, var(--color-tertiary) 0) 0 0;
+  border: none;
+  color: var(--color-solid-secondary);
+  cursor: pointer;
+  height: 44px;
+  padding: 0 var(--space-xs);
+  width: 180px;
+
+  &:hover {
+    background: linear-gradient( 45deg, transparent 10px, hsl(0 0% 60%) 0 ) 0;
+  }
+}

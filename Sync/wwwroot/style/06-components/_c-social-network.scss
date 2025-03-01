@@ -1,0 +1,58 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-social-network";
+
+.#{$component-name} {
+  display: grid;
+  grid-area: social-network;
+  grid-template-columns: 1fr;
+  height: calc(var(--space-2xl));
+  margin: 0;
+  padding: 0;
+  width: auto;
+  justify-items: flex-end;
+
+  @include breakpoint(small) {
+    height: var(--space-4xl);
+    grid-template-columns: 0.5fr 1fr;
+  }
+
+
+  &__container {
+    column-gap: calc(var(--space-6xs) );
+    display: grid;
+    grid-column: 1 / 2;
+    grid-template-columns: repeat(4, var(--space-2xl));
+    padding: 0;
+    justify-items: flex-end;
+    margin: 0;
+
+    @include breakpoint(small) {
+      grid-column: 2 / -1;
+    }
+  }
+
+
+  &__icon {
+    align-self: center;
+    fill: var(--color-primary);
+    height: (var(--space-xl));
+    margin: 0;
+    padding: 0;
+    transition: 205ms;
+    width: calc(var(--space-xl));
+
+    &:hover {
+      background-color: var(--color-secondary);
+      padding: var(--space-6xs);
+    }
+  }
+
+  &__link {
+    display: block;
+    height: (var(--space-l));
+  }
+
+  &__item {
+    fill: var(--color-primary);
+  }
+}

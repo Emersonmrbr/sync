@@ -1,0 +1,7 @@
+$component-name: "c-subtitle";
+
+.#{$component-name} {
+  font-size: var(--font-step-0);
+  margin: 0;
+  padding-bottom: var(--space-xs);
+}

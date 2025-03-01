@@ -1,0 +1,11 @@
+$component-name: "c-description";
+
+.#{$component-name} {
+  align-self: center;
+  //font-size: var(--font-step-0);
+  font-weight: 500;
+  height: auto;
+  justify-self: flex-start;
+  margin: 0;
+  padding: 0;
+}

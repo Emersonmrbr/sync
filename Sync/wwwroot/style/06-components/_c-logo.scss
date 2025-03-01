@@ -1,0 +1,51 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-logo";
+
+.#{$component-name} {
+	align-items: center;
+	display: flex;
+	grid-area: logo;
+	grid-column: 1/2;
+	height: 100%;
+	width: 100%;
+	&__image {
+		transition: var(--transition-function-header);
+		width: calc(var(--space-8xl)*1.5);
+		&.has-sticker {
+			width: calc(var(--space-8xl)*1);
+		}
+
+		@include breakpoint(small) {
+			width: calc(var(--space-8xl)*2.5);
+			&.has-sticker {
+				width: calc(var(--space-8l)*1.5);
+			}
+		}
+	}
+
+	&__map {
+		fill: var(--color-primary);
+	}
+	&__nucleo {
+		fill: var(--color-tertiary);
+	}
+	&__description {
+		fill: var(--color-primary);
+	}
+	&__box-gear {
+		fill: none;
+		stroke: none;
+	}
+	&__gear {
+		fill-rule: evenodd;
+		fill: var(--color-primary);
+		stroke: var(--color-primary);
+	}
+	&__cicle {
+		fill: var(--color-tertiary);
+	}
+	&__ray {
+		fill: var(--color-primary);
+		stroke: none;
+	}
+}

@@ -1,0 +1,35 @@
+/* prettier-ignore */
+
+@font-face {
+  font-display: swap;
+  font-family: 'roboto-regular';
+  font-weight: 100 900;
+  src: url('../../fonts/roboto-regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=640,18,1.2,1920,24,1.333,6,6,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --step--6: clamp(0.2674rem, 0.4315rem + -0.1367vw, 0.3768rem);
+  --step--5: clamp(0.3564rem, 0.5rem + -0.1196vw, 0.4521rem);
+  --step--4: clamp(0.4751rem, 0.5763rem + -0.0843vw, 0.5425rem);
+  --step--3: clamp(0.6333rem, 0.6599rem + -0.0222vw, 0.651rem);
+  --step--2: clamp(0.7813rem, 0.7498rem + 0.0787vw, 0.8442rem);
+  --step--1: clamp(0.9375rem, 0.8436rem + 0.2347vw, 1.1253rem);
+  --step-0: clamp(1.125rem, 0.9375rem + 0.4688vw, 1.5rem);
+  --step-1: clamp(1.35rem, 1.0253rem + 0.8119vw, 1.9995rem);
+  --step-2: clamp(1.62rem, 1.0973rem + 1.3067vw, 2.6653rem);
+  --step-3: clamp(1.944rem, 1.1396rem + 2.0111vw, 3.5529rem);
+  --step-4: clamp(2.3328rem, 1.1312rem + 3.004vw, 4.736rem);
+  --step-5: clamp(2.7994rem, 1.0425rem + 4.3922vw, 6.3131rem);
+  --step-6: clamp(3.3592rem, 0.8312rem + 6.3201vw, 8.4153rem);
+  // TODO: implement a vertical rhythm
+  --font-size-default: var(--step--1);
+  --line-height-default: 2.5;
+  // @see https://systemfontstack.com/
+  --font-family-sans-serif: -apple-system, blinkmacsystemfont, avenir next, avenir, segoe ui, helvetica neue, helvetica, ubuntu, oswald, noto, arial, sans-serif;
+  --font-family-serif: times new roman, droid serif, times, source serif pro, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --font-family-mono: menlo, consolas, monaco, liberation mono, lucida console, monospace;
+  --font-family-roboto: roboto, var(--font-family-sans-serif);
+}

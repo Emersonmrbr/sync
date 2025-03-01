@@ -1,0 +1,51 @@
+@page "/localizacao"
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+@rendermode InteractiveWebAssembly
+
+<PageTitle>Localização</PageTitle>
+<div class="c-main c-main--single-column">
+    <h1 class="c-title">Localização</h1>
+    <div id="map" class="c-maps js-maps"></div>
+    <article class="c-description">
+        <h2 class="c-subtitle">Núcleo MAP Máquinas Automação e Programação</h2>
+        <p class="c-text-compact c-text--compact">Rua Senador Accioly filho, 661</p>
+        <p class="c-text-compact">81310-000, Curitiba - PR Brasil</p>
+        <p class="c-text-compact">Fone: +55 992 749 270</p>
+    </article>
+</div>
+<script src="js/map.js"></script>
+
+<script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+      key: "AIzaSyA42QEJ5viU_M-B8sBuHE2JMTaiDJbLyXg",
+      v: "weekly",
+    });
+</script>
+
+@code {
+    private IJSObjectReference? module;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Localizacao.razor.js");
+
+        }
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            try
+            {
+                await module.DisposeAsync();
+            }
+            catch (JSDisconnectedException)
+            {
+            }
+        }
+    }
+}

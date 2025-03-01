@@ -1,0 +1,124 @@
+$component-name: "c-slider";
+
+.#{$component-name} {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  @media(--small-up) {
+  }
+
+  &__gallery-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-flow: nowrap;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    height: 100%;
+  }
+
+  &__gallery {
+    display: grid;
+    flex-shrink: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    &.carousel {
+      transition: all 2s ease-in;
+    }
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__item {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__description {
+    align-items: flex-start;
+    align-self: flex-end;
+    background: linear-gradient( -135deg, transparent 10px, var(--color-tertiary) 0 ) 0 0;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    grid-row: 2/3;
+    height: auto;
+    justify-items: center;
+    justify-self: flex-start;
+    padding-left: var(--space-xs);
+    width: 100%;
+    z-index: var(--z-index-above);
+
+    @media(--small-up) {
+      grid-column: 1/2;
+      padding-left: var(--space-xl);
+    }
+
+    @media(--medium-up) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    height: 50%;
+    justify-self: center;
+  }
+
+  &__text {
+    height: 50%;
+  }
+
+  &__prev,
+  &__next {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: grid;
+    grid-row: 2 / 3;
+    justify-items: center;
+    opacity: 1;
+    padding: 0;
+    width: var(--space-l);
+    z-index: var(--z-index-above);
+  }
+
+  &__prev {
+    grid-column: 1 / 2;
+  }
+
+  &__next {
+    grid-column: 3 /4;
+  }
+
+  &__arrow-wrapper {
+    align-items: center;
+    cursor: pointer;
+    height: var(--space-l);
+    justify-items: center;
+    padding: 0;
+    width: var(--space-l);
+  }
+
+  &__arrow-prev,
+  &__arrow-next {
+    fill: var(--color-solid-secondary);
+    stroke-width: calc(var(--space-l) / 50);
+    stroke: var(--color-solid-secondary);
+  }
+}

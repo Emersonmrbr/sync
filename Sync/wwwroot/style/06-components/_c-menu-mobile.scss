@@ -1,0 +1,110 @@
+$component-name: "c-menu-mobile";
+
+.#{$component-name} {
+  grid-area: menu-flyout-1;
+
+  &__content {
+    grid-column: 1 / 2;
+  }
+
+  &.is-open {
+    height: auto;
+    overflow: visible;
+    padding: calc(var(--space-xs) * 3) 0;
+    transition: var(--transition-function-header-mobile);
+    width: 100%;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    flex: 1;
+    width: 100%;
+  }
+
+  &__link {
+    align-self: flex-start;
+    border-top: 1px var(--color-primary) solid;
+    color: var(--color-tertiary);
+    display: flex;
+    padding: var(--space-2xl);
+    position: relative;
+    height: 100%;
+
+    &:last-child {
+      border-bottom: 1px var(--color-primary) solid;
+    }
+
+    background-color: var(--color-text);
+    border: none;
+    text-transform: capitalize;
+    width: 100%;
+
+    &:hover {
+      background-color: var(--color-secondary);
+      color: var(--color-text);
+
+      &::after {
+        color: var(--color-text);
+        content: ">";
+        font-weight: 100;
+        position: absolute;
+        right: (var(--space-3xs));
+        top: auto;
+        transform: scale(1.5, 3);
+      }
+    }
+  }
+
+  &-flyout {
+    grid-area: menu-flyout-2;
+
+    &.is-open {
+      height: auto;
+      overflow: visible;
+      padding: calc(var(--space-xs) * 3) 0;
+      transition: var(--transition-function-header-mobile);
+      width: 100%;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: var(--space-xs) 0 0 0;
+    }
+
+    &__item {
+      flex: 1;
+      width: 100%;
+    }
+
+    &__link {
+      align-self: flex-start;
+      background-color: var(--color-text);
+      border-top: 1px var(--color-primary) solid;
+      border: none;
+      color: var(--color-tertiary);
+      display: flex;
+      padding: var(--space-2xl);
+      position: relative;
+      text-transform: capitalize;
+      width: 100%;
+
+      &:last-child {
+        border-bottom: 1px var(--var-primary) solid;
+      }
+
+      &:hover {
+        color: var(--color-secondary);
+        font-style: normal;
+        font-weight: 700;
+      }
+    }
+  }
+}

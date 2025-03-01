@@ -1,0 +1,149 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-form";
+
+.#{$component-name} {
+  display: grid;
+  gap: var(--space-xs);
+  grid: 1fr 1fr 1fr 1fr 2.5fr 1fr / 1fr 1fr;
+
+  @include breakpoint(small) {
+    grid: 1fr 1fr 2.5fr 1fr / 1fr 1fr;
+  }
+
+  &__control {
+    background-color: var(--color-tertiary-light);
+    padding: var(--space-3xs) var(--space-3xs);
+    position: relative;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--color-tertiary);
+  }
+
+  &__label {
+    cursor: text;
+    left: 0;
+    margin: 0;
+    padding: var(--space-3xs) var(--space-3xs);
+    position: absolute;
+    top: 0;
+    transition: all 500ms;
+    z-index: var(--z-index-default);
+
+    &.is-filled {
+      box-shadow: 0 0 0 0;
+      font-size: var(--step--3);
+      outline: 0;
+      padding: var(--space-6xs) var(--space-3xs);
+    }
+  }
+
+  &__name,
+  &__lastname,
+  &__phone,
+  &__email,
+  &__textarea {
+    &__item {
+      background-color: rgba($color: #fff, $alpha: 0.01);
+      border-style: none;
+      height: var(--space-6xl);
+      margin: 0;
+      position: relative;
+      resize: none;
+      width: 100%;
+      z-index: var(--z-index-above);
+      outline: 0;
+
+      &.is-filled {
+        box-shadow: 0 0 0 0;
+        font-size: var(--font-step-1);
+        outline: 0;
+        padding: var(--space-6xs) var(--space-3xs);
+      }
+    }
+  }
+
+  &__name {
+    grid-column: 1 /3;
+    grid-row: 1/2;
+
+    @include breakpoint('small-up') {
+      grid-column: 1 /2;
+    }
+  }
+
+  &__lastname {
+    grid-column: 1 /3;
+    grid-row: 2/3;
+
+    @include breakpoint('small-up') {
+      grid-column: 2 /3;
+      grid-row: 1/2;
+    }
+  }
+
+  &__phone {
+    grid-column: 1 /3;
+    grid-row: 3/4;
+
+    @include breakpoint('small-up') {
+      grid-column: 1 /2;
+      grid-row: 2/3;
+    }
+  }
+
+  &__email {
+    grid-column: 1 /3;
+    grid-row: 4/5;
+
+    @include breakpoint('small-up') {
+      grid-column: 2 /3;
+      grid-row: 2/3;
+    }
+  }
+
+  &__textarea {
+    grid-column: 1 /3;
+    grid-row: 5/6;
+    height: var(--space-8xl);
+    width: 100%;
+
+    @include breakpoint('small-up') {
+      grid-column: 1 /3;
+      grid-row: 3/4;
+    }
+  }
+
+  &__letter-counter {
+    font-size: var(--font-step-1);
+    color: initial;
+    position: absolute;
+    right: var(--space-3xs);
+    bottom: var(--space-3xs);
+  }
+
+  &__submit {
+    grid-column: 2 / 3;
+    grid-row: 6 / 7;
+    justify-self: end;
+
+    @include breakpoint('small-up') {
+      grid-column: 2 / 3;
+      grid-row: 4/ 5;
+    }
+  }
+
+  &__feedback-success {
+    color: rgba($color: #00ff00, $alpha: 1);
+  }
+
+  &__feedback-error {
+    color: rgba($color: #ff0000, $alpha: 1);
+  }
+
+  &__error {
+    color: rgba($color: #ff0000, $alpha: 1);
+    font-size: var(--step--2);
+    position: absolute;
+    bottom: var(--space-6xs);
+  }
+}

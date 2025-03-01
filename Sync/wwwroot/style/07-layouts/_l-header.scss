@@ -1,0 +1,33 @@
+@import "../01-settings/breakpoint";
+$component-name: "l-header";
+
+.#{$component-name} {
+  background-color: var(--color-solid-secondary);
+  column-gap: var(--space-6xs);
+  display: grid;
+  grid: "top top" auto "logo button-mobile" auto "menu-flyout-1 menu-flyout-2" auto "line line" auto / 1fr 1fr;
+  height: auto;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: var(--size-max-width);
+  overflow: visible;
+  padding: var(--space-xs) var(--padding-small) 0 var(--padding-small);
+  position: fixed;
+  transition: var(--transition-function-header);
+  width: 100%;
+  z-index: var(--z-index-above);
+
+  &.has-sticker {
+    box-shadow: 0 var(--space-l) var(--space-l) 0 rgba(0, 0, 0, 0.2);
+    padding: var(--padding-small);
+  }
+
+  @include breakpoint(small) {
+    grid: "top top" auto "logo menu" auto "menu-flyout menu-flyout" auto "button-close button-close" auto "line line" auto/ 250px 1fr;
+    padding: var(--space-l) var(--padding-default) 0 var(--padding-default);
+
+    &.has-sticker {
+      padding: 0 var(--padding-small);
+    }
+  }
+}

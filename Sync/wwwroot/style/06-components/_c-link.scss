@@ -1,0 +1,85 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-link";
+
+.#{$component-name} {
+  &-frame {
+    align-items: center;
+    border-bottom: solid calc(var(--space-s) * 0.5) var(--color-solid-primary);
+    display: flex;
+    height: var(--space-6xl);
+    width: 100%;
+
+    &:first-child {
+      border-bottom: solid calc(var(--space-s) * 0.5) var(--color-solid-primary);
+    }
+
+    @include breakpoint(small) {
+      display: block;
+      font-weight: 300;
+      line-height: var(--space-xs);
+      padding: var(--space-8xl) 0;
+      position: relative;
+      transition: var(--transition-function-padding-link);
+
+      &:first-child {
+        border-bottom: none;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: var(--line-default);
+        margin-top: var(--space-6xs);
+        position: absolute;
+        transform: scale(0, 1);
+        transition: var(--transition-function-transform-link);
+        width: 100%;
+      }
+
+      &:hover {
+        &::after {
+          transform: scale(1, 1);
+        }
+      }
+
+      &:hover {
+        transition: var(--transition-function-transform-link);
+      }
+    }
+  }
+
+  &-skin {
+    background: none;
+    border: none;
+    color: var(--color-tertiary);
+    cursor: pointer;
+    font-size: var(--step--2);
+    font-style: normal;
+    text-transform: uppercase;
+    transition: var(--transition-function-padding-link);
+
+    @include breakpoint('small-up') {
+      padding: var(--space-3xs) 0;
+      position: relative;
+
+      &::after {
+        background-color: var(--color-tertiary);
+        transition: var(--transition-function-transform-link);
+        width: 100%;
+      }
+
+      &:hover {
+        color: var(--color-tertiary);
+        font-weight: 700;
+      }
+
+      &--footer {
+        width: auto;
+
+        &::after {
+          background-color: var(--color-solid-secondary);
+        }
+      }
+    }
+  }
+}

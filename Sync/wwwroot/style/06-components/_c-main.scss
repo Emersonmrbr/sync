@@ -1,0 +1,14 @@
+$component-name: "c-main";
+
+.#{$component-name} {
+  align-content: stretch;
+  display: grid;
+  gap: var(--space-xs);
+  grid: auto-flow / 1fr 1fr;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 0;
+  &--single-column {
+    grid: auto-flow / 1fr;
+  }
+}

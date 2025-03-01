@@ -1,0 +1,6 @@
+$component-name: "in-error";
+
+.#{$component-name} {
+  border-bottom-color: rgba($color: #ff0000, $alpha: 1);
+  color: rgba($color: #ff0000, $alpha: 1);
+}

@@ -1,0 +1,21 @@
+@import "../01-settings/breakpoint";
+$component-name: "l-footer";
+
+.#{$component-name} {
+  align-items: center;
+  background-color: var(--color-tertiary);
+  color: var(--color-solid-secondary);
+  display: grid;
+  grid-area: footer;
+  grid: "description" var(--space-6xs) "local" var(--space-6xs) "contact " auto "social-network " auto "copyright" auto / 1fr;
+  height: auto;
+  margin: 0 auto;
+  max-width: var(--size-max-width);
+  padding: 0 var(--padding-small);
+  width: 100%;
+
+  @include breakpoint(small) {
+    grid: "description local" auto "contact social-network" calc(var(--space-8xl) * 2) "copyright ." auto / auto auto;
+    padding: 0 var(--padding-default);
+  }
+}

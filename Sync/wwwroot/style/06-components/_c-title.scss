@@ -1,0 +1,13 @@
+$component-name: "c-title";
+
+.#{$component-name} {
+  font-size: xx-large;
+  padding: 0;
+  margin: 0;
+  &__company1 {
+    color: var(--color-primary);
+  }
+  &__company2 {
+    color: var(--color-tertiary);
+  }
+}

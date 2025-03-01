@@ -1,0 +1,16 @@
+@import "../01-settings/breakpoint";
+$component-name: "l-main";
+
+.#{$component-name} {
+  background-color: var(--color-solid-secondary);
+  color: var(--color-text);
+  grid-area: main;
+  margin: 0 auto;
+  padding: var(--padding-small);
+  width: 100%;
+  max-width: var(--size-max-width);
+
+  @include breakpoint(small) {
+    padding: var(--padding-default) 0;
+  }
+}

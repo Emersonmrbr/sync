@@ -1,0 +1,10 @@
+$component-name: "c-text";
+
+.#{$component-name} {
+  //line-height: var(--space-xs);
+  &--compact {
+    line-height: 1.5rem;
+    padding: 0 0 0 var(--space-2xs);
+    margin: 0;
+  }
+}

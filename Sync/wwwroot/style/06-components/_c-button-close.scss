@@ -1,0 +1,32 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-button-close";
+
+.#{$component-name} {
+  @include breakpoint(small) {
+    align-items: center;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    fill: var(--color-primary);
+    grid-area: button-close;
+    height: 64px;
+    margin: 0;
+    padding: 0;
+    width: 64px;
+    position: absolute;
+    top: -32px;
+  }
+
+  &__icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  &__stroke {
+    fill: none;
+    stroke: var(--color-secondary);
+    stroke-width: var(--space-l);
+  }
+}

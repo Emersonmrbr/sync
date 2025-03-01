@@ -1,0 +1,51 @@
+<div class="c-slider">
+    <div class="c-slider__gallery-wrapper" style="transform:translateX(@(-CurrentIndex * 100)%); @Transition">
+        <figure class="c-slider__gallery slide-cloned">
+            <picture class="c-slider__container">
+                <img src="@imageItems[^1].ImageUrl" alt="Foto 1 máquina Núcleo MAP" class="c-slider__item" />
+            </picture>
+            <figcaption class="c-slider__description">
+                <h3 class="c-slider__title">@imageItems[^1].Title</h3>
+                <p class="c-slider__text">@imageItems[^1].Description</p>
+            </figcaption>
+        </figure>
+        @foreach (var item in imageItems)
+        {
+            <figure class="c-slider__gallery">
+                <picture class="c-slider__container">
+                    <img src="@item.ImageUrl" alt="Foto 1 máquina Núcleo MAP" class="c-slider__item" />
+                </picture>
+                <figcaption class="c-slider__description">
+                    <h3 class="c-slider__title">@item.Title</h3>
+                    <p class="c-slider__text">@item.Description</p>
+                </figcaption>
+            </figure>
+        }
+        <figure class="c-slider__gallery slide-cloned">
+            <picture class="c-slider__container">
+                <img src="@imageItems[0].ImageUrl" alt="Foto 1 máquina Núcleo MAP" class="c-slider__item" />
+            </picture>
+            <figcaption class="c-slider__description">
+                <h3 class="c-slider__title">@imageItems[0].Title</h3>
+                <p class="c-slider__text">@imageItems[0].Description</p>
+            </figcaption>
+        </figure>
+    </div>
+    <aside class="c-slider__prev" @onclick="Previous">
+        <svg viewBox="0 0 512 512" class="c-slider__arrow-wrapper">
+            <g class="c-slider__arrow-prev">
+                <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " />
+            </g>
+        </svg>
+    </aside>
+    <aside class="c-slider__next" @onclick="() => {Next(); ButtonPressed=true;}">
+        <svg viewBox="0 0 512 512" class="c-slider__arrow-wrapper">
+            <g class="c-slider__arrow-next">
+                <polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 " />
+            </g>
+        </svg>
+    </aside>
+</div>
+
+@code {
+}

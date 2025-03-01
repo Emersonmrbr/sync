@@ -1,0 +1,15 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-local";
+
+.#{$component-name} {
+  grid-area: local;
+  align-self: center;
+  justify-self: flex-start;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+
+  @include breakpoint(small) {
+    justify-self: flex-end;
+  }
+}

@@ -1,0 +1,74 @@
+@page "/contato"
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<PageTitle>Contato</PageTitle>
+
+<div class="c-main c-main--single-column">
+    <article class="c-introduction">
+        <h1 class="c-title"><strong class="c-title__company1">NÚCLEO</strong> <strong class="c-title__company2">MAP</strong> nosso contato</h1>
+        <p class="c-text">Se deseja saber mais sobre nossos serviços e produtos, entre em contato conosco.</p>
+    </article>
+    <article class="c-company">
+        <h3 class="c-company__title">Núcleo MAP Máquinas Automação e Programação</h3>
+        <p class="c-company__fone">Fone: +55 (41) 992 749 270</p>
+        <p class="c-company__mail">E-mail: nucleomap@nucleomap.com.br</p>
+    </article>
+    <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" FormName="contact" method="post" OnInvalidSubmit="Sendemail" class="c-form">
+        <DataAnnotationsValidator />
+        @* <ValidationSummary class="c-form__error" role="alert" /> *@
+        <div js-control class="c-form__name c-form__control">
+            <InputText @bind-Value="Input.Name" js-contact-input type="text" name="name" class="c-form__name__item" minlength="3" maxlength="30" />
+            <label js-contact-label for="name" class="c-form__label">Nome *</label>
+            <ValidationMessage For="() => Input.Name" class="c-form__error" />
+        </div>
+        <div js-control class="c-form__lastname c-form__control">
+            <InputText @bind-Value="Input.LastName" js-contact-input type="text" name="lastname" class="c-form__lastname__item" minlength="3" maxlength="50" />
+            <label js-contact-label for="lastname" class="c-form__label">Sobrenome *</label>
+            <ValidationMessage For="() => Input.LastName" class="c-form__error" />
+        </div>
+        <div js-control class="c-form__phone c-form__control">
+            <InputText @bind-Value="Input.Phone" js-contact-input type="phone" name="phone" class="c-form__phone__item" maxlength="16" />
+            <label js-contact-label for="phone" class="c-form__label">Telefone *</label>
+            <ValidationMessage For="() => Input.Phone" class="c-form__error" />
+        </div>
+        <div js-control class="c-form__email c-form__control">
+            <InputText @bind-Value="Input.Email" js-contact-input type="email" name="email" class="c-form__email__item" />
+            <label js-contact-label for="email" class="c-form__label">E-mail *</label>
+            <ValidationMessage For="() => Input.Email" class="c-form__error" />
+        </div>
+        <div js-control class="c-form__textarea c-form__control">
+            <InputTextArea @bind-Value="Input.Message" js-contact-input name="message" class="c-form__textarea__item" minlength="10" maxlength="425"></InputTextArea>
+            <label js-contact-label for="message" class="c-form__label">Mensagem *</label>
+            <ValidationMessage For="() => Input.Message" class="c-form__error" />
+            <span js-letterCounter class="c-form__letter-counter"></span>
+        </div>
+        <button type="submit" value="Enviar" class="c-form__submit c-button">Enviar</button>
+    </EditForm>
+</div>
+
+@code {
+    private IJSObjectReference? module;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Contato.razor.js");
+        }
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            try
+            {
+                await module.DisposeAsync();
+            }
+            catch (JSDisconnectedException)
+            {
+            }
+        }
+    }
+}

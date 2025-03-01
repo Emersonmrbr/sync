@@ -1,0 +1,13 @@
+{
+  "EmailSender": {
+    "Encryption": "SSL",
+    "Host": "smtp.hostinger.com",
+    "Password": "&Merson215034",
+    "Port": 587,
+    "EnableSSL": true,
+    "Username": "enviosite@nucleomap.com.br",
+    "From": "enviosite@nucleomap.com.br",
+    "To": "contatosite@nucleomap.com.br"
+
+  }
+}

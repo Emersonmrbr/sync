@@ -1,0 +1,19 @@
+@import "../01-settings/breakpoint";
+$component-name: "l-body";
+
+.#{$component-name} {
+  background-color: var(--color-solid-secondary);
+  display: grid;
+  grid: "header " auto "main" auto "footer" auto "line-footer" auto/ 1fr;
+  margin: 0 auto;
+  max-width: var(--size-max-width);
+  width: 100%;
+
+  @include breakpoint(small) {
+    grid: "header " auto "main" auto "footer" auto "line-footer" auto/ 1fr;
+  }
+
+  @include breakpoint('large-up') {
+    grid: "header" auto "main" auto "footer" auto "line-footer" auto/ 1fr;
+  }
+}

@@ -1,0 +1,13 @@
+$component-name: "c-top";
+
+.#{$component-name} {
+	grid-area: top;
+	height: 0;
+	transition: var(--transition-function-header);
+	&.has-sticker {
+		height: 0;
+	}
+	@media(--large-up) {
+		height: calc(var(--space-l) * 1.375);
+	}
+}

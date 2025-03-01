@@ -1,0 +1,16 @@
+$component-name: "c-mark";
+
+.#{$component-name} {
+  width: var(--space-xs);
+  height: var(--space-xs);
+
+  &__item {
+    fill: none;
+    shape-rendering: crispEdges;
+    stroke-width: 0.1rem;
+    stroke: var(--color-tertiary);
+    // @-moz-document url-prefix() {
+    // 	stroke-width: 1px;
+    // }
+  }
+}

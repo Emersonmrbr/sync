@@ -1,0 +1,61 @@
+@import "../01-settings/breakpoint";
+$component-name: "c-line-footer";
+
+.#{$component-name} {
+  background-color: var(--color-solid-secondary);
+  display: grid;
+  grid-area: line-footer;
+  grid-template-columns: 1fr;
+  height: auto;
+  margin: 0 auto;
+  max-width: var(--size-max-width);
+  width: 100%;
+
+  @include breakpoint(small) {
+    grid-template-columns: 1fr calc(var(--space-8xl)*1.9);
+  }
+
+  &__full {
+    height: var(--space-xl);
+    shape-rendering: crispEdges;
+    width: 100%;
+  }
+
+  &__colored {
+    fill: none;
+    height: 100%;
+    overflow: visible;
+    shape-rendering: crispEdges;
+    stroke: var(--color-primary);
+    width: 100%;
+
+    &--smoth {
+      shape-rendering: auto;
+    }
+  }
+
+  &__mono {
+    stroke: var(--color-secondary);
+    fill: none;
+    overflow: visible;
+  }
+
+  &__right {
+    display: none;
+    overflow: hidden;
+
+    @include breakpoint('small-up') {
+      display: block;
+      height: var(--space-3xs);
+      overflow: visible;
+      width: 100%;
+    }
+  }
+
+  &__background {
+    fill: var(--color-solid-secondary);
+    height: 100%;
+    overflow: visible;
+    width: 100%;
+  }
+}
