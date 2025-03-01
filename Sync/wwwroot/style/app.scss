@@ -1,9 +1,8 @@
-@use "01-settings/index" as settings;
-@use "02-tools/index" as tools;
-@use "03-generics/index" as generics;
-@use "04-elements/index" as elements;
-@use "05-objects/index" as objects;
-@use "06-components/index" as components;
-@use "07-layouts/index" as layouts;
-@use "08-states/index" as states;
-@use "99-utilities/index" as utilities;
+@import "01-settings/index";
+@import "02-tools/index";
+@import "03-generics/index";
+@import "04-elements/index";
+@import "05-objects/index";
+@import "06-components/index";
+@import "07-layouts/index";
+@import "08-states/index";
