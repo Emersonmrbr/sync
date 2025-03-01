@@ -1,7 +1,7 @@
 @page "/localizacao"
 @inject IJSRuntime JS
 @implements IAsyncDisposable
-@rendermode InteractiveWebAssembly
+@rendermode InteractiveServer
 
 <PageTitle>Localização</PageTitle>
 <div class="c-main c-main--single-column">
@@ -22,30 +22,3 @@
       v: "weekly",
     });
 </script>
-
-@code {
-    private IJSObjectReference? module;
-
-    protected async override Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Localizacao.razor.js");
-
-        }
-    }
-
-    async ValueTask IAsyncDisposable.DisposeAsync()
-    {
-        if (module is not null)
-        {
-            try
-            {
-                await module.DisposeAsync();
-            }
-            catch (JSDisconnectedException)
-            {
-            }
-        }
-    }
-}

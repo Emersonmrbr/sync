@@ -1,5 +1,5 @@
 using System.Threading;
-namespace Sync.Components.Pages
+namespace Sync.Client.Components.Pages
   {
   public partial class ImageSlider
     {
